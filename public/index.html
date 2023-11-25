@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+    <body>
+        <header class="title">
+            <h1>Chit Chat</h1>
+            <h2>Chat with your friends!</h2>
+        </header>
+        <div id="login-form">
+            <form method="post" action="/api/v1/login">
+                <input type = "text" name = "inputUsername" placeholder = "Enter your username"/>
+                <button  id="loginButton" type = "submit">Login</button>
+            </form>
+        </div>
+        <!-- spinner -->
+        <div id="loading-indicator" class="gg-spinner-two hidden"></div>
+
+        <div id="chat-app">
+            <!-- onlineuser Panel-->
+            <p>Online Users:</p>
+            <ul class="users">
+                <li id="users-list">
+                    <div id="user">
+                        <span class="existingUser"> Amit 
+                            <img class="avatar" alt="avatar of user" src="images/avatar-amit.jpg"/>
+                        </span>
+                        <span id="existingUser"> NaNa
+                            <img class="avatar" alt="avatar of user" src="images/avatar-nana.jpg"/>
+                        </span>
+                        <span id="existingUser"> DaBao
+                            <img class="avatar" alt="avatar of user" src="images/DaBao.jpeg"/>
+                        </span>
+                            <!-- new loggedin user will show here -->
+                    </div>
+                </li>
+            </ul>
+
+            <div class="window-header">
+                <h3 id="header-box">Chit Chat</h3>
+            </div>
+
+            <!-- magsList Panel -->
+            <div class="msgs-box">
+                <div class="messages">
+                    <li class="message">
+                        <div class="sender-info column">
+                            <p class="username">Amit</p>
+                            <img class="avatar" alt="avatar of user" src="images/avatar-amit.jpg"/>
+                        </div>
+                        <div  class=" sent-msgs">
+                            <p>Anybody up?</p>
+                        </div>
+                    </li>
+                    <li class="message">
+                        <div class="sender-info column">
+                            <p class="username">NaNa</p>
+                            <img class="avatar" alt="avatar of user" src="images/avatar-nana.jpg"/>
+                        </div>
+                        <div class=" sent-msgs">
+                            <p>yes?</p>
+                        </div>
+                    </li>  
+                </div>
+                <div class="messages new-messages">
+                    <!-- new sent msgs will show here -->
+                </div>
+            </div>
+            <!-- sendmsgs Panel -->
+            <div class="outgoing">
+                <form method="post" action="/api/v1/chat">
+                    <input name="send-message"  placeholder="Enter message here"/>
+                    <button class="send-message-button" type="submit">Send</button>
+                </form>
+            </div>
+            <div class="logout">
+                <form action="/api/v1/logout"  method="post">
+                    <button class="logout-button" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        <div id="error"></div>
+
+        <div id="app"></div>
+        <footer class="footer">
+            <p>Chit Chat @Copyright 2023</p>
+          </footer>
+        <script src="./bundle.js"></script>
+    </body>
+</html>
